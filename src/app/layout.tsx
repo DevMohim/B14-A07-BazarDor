@@ -19,7 +19,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${hindSiliguri.className}`}>
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <Navbar />
-        {children}</body>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
