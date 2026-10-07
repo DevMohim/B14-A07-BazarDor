@@ -11,7 +11,7 @@ const Banner = () => {
 
    return (
      <section>
-       <div className="container mx-auto bg-headerBg border-2 border-stroke rounded-lg flex justify-between items-center px-4 py-10">
+       <div className="container mx-auto bg-headerBg border-2 border-stroke rounded-lg flex flex-col lg:flex-row justify-between items-center px-4 py-10">
          <div className="flex flex-col w-xl space-y-2">
            <span className="px-3 py-1  rounded-[14px] bg-green/10 text-green text-sm font-medium w-48">
              {time}
