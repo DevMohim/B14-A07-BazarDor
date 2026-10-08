@@ -1,9 +1,8 @@
 const Footer = () => {
   return (
-    <footer className=" border-t-2 border-t-stroke py-5">
-        <div className="bg-stroke w-full h-12 mt-10"></div>
+    <footer >
       <div className="container mx-auto">
-        <div className="container mx-auto flex justify-between items-center gap-4 mt-4">
+        <div className="container mx-auto flex justify-between items-center gap-4 border-t-2 border-t-stroke py-5">
           <p className="text-sm text-dark/70 font-semibold">
             বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।
           </p>

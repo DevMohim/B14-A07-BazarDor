@@ -5,12 +5,12 @@ import ProductCard from '../Shared/ProductCard';
 const AllProducts = async() => {
    const allProducts = await getAllProducts() as IProductType[]
    return (
-     <section className="mt-12">
+     <section className="mt-12" id='allProduct'>
        <div className="container mx-auto">
-         <h1 className="flex items-center gap-3 text-dark text-2xl font-bold mb-3">
+         <h1 className="flex items-center gap-3 text-dark text-2xl font-bold mb-1">
            সব পণ্য
          </h1>
-         <p className="text-dark/50 mb-6">
+         <p className="text-dark/50 mb-4">
            মোট {allProducts.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
          </p>
 
@@ -20,6 +20,7 @@ const AllProducts = async() => {
            ))}
          </div>
        </div>
+       <div className="bg-stroke w-full h-12 mt-10"></div>
      </section>
    );
 };

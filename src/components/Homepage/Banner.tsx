@@ -24,9 +24,11 @@ const Banner = () => {
              বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
            </p>
 
-           <button className="btn bg-green text-white text-sm font-semibold mt-2 w-32">
-             সব পণ্য দেখুন
-           </button>
+           <a href="#allProduct">
+             <button className="btn bg-green text-white text-sm font-semibold mt-2 w-32">
+               সব পণ্য দেখুন
+             </button>
+           </a>
          </div>
          <div>
            <Image

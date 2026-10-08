@@ -1,5 +1,6 @@
 import Logo from "@/assets/logo-icon.png";
 import Image from "next/image";
+import Link from "next/link";
 const time = new Date().toLocaleDateString("bn-BD", {
   timeZone: "Asia/Dhaka",
   weekday: "long",
@@ -52,9 +53,11 @@ const TopHeader = () => {
           <button className="btn border-none text-sm font-semibold ">
             সাইন ইন
           </button>
-          <button className="btn bg-green text-white text-sm font-semibold ">
-            সাইন আপ
-          </button>
+          <Link href='/signup'>
+            <button className="btn bg-green text-white text-sm font-semibold ">
+              সাইন আপ
+            </button>
+          </Link>
         </div>
       </div>
     </section>
