@@ -41,7 +41,7 @@ const TopHeader = () => {
           </label>
         </div>
         <div className="flex items-center gap-2">
-          <Link href='/'>
+          <Link href="/">
             <div className="w-10 h-10 rounded-xl bg-green flex justify-center items-center">
               <Image src={Logo} alt="Bazar-Dor logo"></Image>
             </div>
@@ -52,9 +52,11 @@ const TopHeader = () => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button className="btn border-none text-sm font-semibold ">
-            সাইন ইন
-          </button>
+          <Link href='/signin'>
+            <button className="btn border-none text-sm font-semibold ">
+              সাইন ইন
+            </button>
+          </Link>
           <Link href="/signup">
             <button className="btn bg-green text-white text-sm font-semibold ">
               সাইন আপ

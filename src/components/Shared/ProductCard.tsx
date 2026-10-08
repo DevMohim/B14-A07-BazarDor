@@ -23,12 +23,26 @@ const ProductCard = ({product} : {product : IProductType}) => {
              <span className="text-dark text-sm">টাকা</span>
            </h1>
            <div
-             className={`flex items-center gap-0.5 ${change.dir === "up" ? "text-red-600" : "text-green"} flex gap-2 px-4 py-1.5 rounded-full bg-stroke`}
+             className={`flex items-center gap-2 rounded-full bg-stroke px-4 py-1.5 ${
+               change.dir === "flat"
+                 ? "text-gray-500"
+                 : change.dir === "up"
+                   ? "text-red-600"
+                   : "text-green"
+             }`}
            >
              <p>
-               <IoTriangleSharp
-                 className={` w-2.5 h-4 ${change.dir === "down" && "rotate-180"}`}
-               />
+               {change.dir === "up" || change.dir === "down" ? (
+                 <>
+                   <IoTriangleSharp
+                     className={` w-2.5 h-4 ${change.dir === "down" && "rotate-180"}`}
+                   />
+                 </>
+               ) : (
+                 <>
+                   <span className="text-gray-500"> - </span>
+                 </>
+               )}
              </p>
              <p>{Math.abs(change.pct).toLocaleString("bn-BD")}%</p>
            </div>
