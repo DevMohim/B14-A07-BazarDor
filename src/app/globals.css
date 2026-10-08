@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@import "tailwindcss";
-@import "@heroui/styles"; 
+@import "tailwindcss"; 
 
 @theme {
   --font-primary: 'Hind Siliguri', ui-sans-serif, system-ui, sans-serif;
