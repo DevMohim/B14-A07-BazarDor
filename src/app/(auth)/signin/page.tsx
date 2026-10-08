@@ -1,27 +1,17 @@
 import Link from "next/link";
 
-const SignUpPage = () => {
+const SignInPage = () => {
   return (
     <section className="bg-stroke min-h-screen -mt-6">
       <div className="container mx-auto flex min-h-screen justify-center items-center flex-col pt-10">
-        <h1 className="text-dark font-bold text-2xl">অ্যাকাউন্ট তৈরি করুন</h1>
+        <h1 className="text-dark font-bold text-2xl">সাইন ইন</h1>
         <p className="text-dark/70 text-sm">
-          বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
+          বিস্তারিত দাম, বাজার তুলনা ও প্রোফাইল দেখতে অ্যাকাউন্টে ঢুকুন।
         </p>
 
         <div className="mt-4 bg-white rounded-2xl p-5">
           <form>
             <fieldset className="fieldset bg-white rounded-2xl w-sm p-5">
-              <label className="label text-sm text-dark font-semibold">
-                নাম
-              </label>
-              <input
-                type="text"
-                className="input w-sm mb-2"
-                placeholder="যেমন: রহিম উদ্দিন"
-                autoComplete="name"
-              />
-
               <label className="label text-sm text-dark font-semibold">
                 ইমেইল
               </label>
@@ -42,18 +32,8 @@ const SignUpPage = () => {
                 autoComplete="new-password"
               />
 
-              <label className="label text-sm text-dark font-semibold">
-                পাসওয়ার্ড নিশ্চিত করুন
-              </label>
-              <input
-                type="password"
-                className="input w-sm mb-2"
-                placeholder="আবার লিখুন"
-                autoComplete="new-password"
-              />
-
               <button className="btn bg-green text-white mt-4" type="submit">
-                অ্যাকাউন্ট তৈরি করুন
+                সাইন ইন
               </button>
             </fieldset>
           </form>
@@ -66,9 +46,9 @@ const SignUpPage = () => {
 
           <div className="flex justify-center items-center mt-4">
             <p className="text-dark text-sm font-semibold">
-              অ্যাকাউন্ট আছে?{" "}
-              <Link href='/signin'>
-                <span className="text-green cursor-pointer">সাইন ইন করুন</span>
+              অ্যাকাউন্ট নেই ?
+              <Link href='/signup'>
+                <span className="text-green cursor-pointer"> সাইন আপ করুন</span>
               </Link>
             </p>
           </div>
@@ -85,4 +65,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default SignInPage;
