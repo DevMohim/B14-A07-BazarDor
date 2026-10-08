@@ -1,5 +1,4 @@
 import { IProductType } from '@/types/types';
-import Image from 'next/image';
 import { IoTriangleSharp } from 'react-icons/io5';
 
 const ProductCard = ({product} : {product : IProductType}) => {
