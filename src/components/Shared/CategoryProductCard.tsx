@@ -6,7 +6,7 @@ const ProductCard = ({product} : {product : IProductType}) => {
    const {image,nameBn,today,change} = product
    return (
      <Link href={`/product/${product.id}`}>
-       <div className="bg-headerBg border border-stroke rounded-lg p-6 hover:border hover:border-green transition ease-in duration-200">
+       <div className="bg-white border border-stroke rounded-lg p-6 hover:border hover:border-green transition ease-in duration-200">
          <div className="flex items-center gap-2">
            <div className="w-12 h-12 rounded-xl bg-stroke flex justify-center items-center">
              <h1>{image}</h1>

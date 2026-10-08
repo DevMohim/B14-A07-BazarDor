@@ -27,7 +27,7 @@ const MarqueeTexts = async() => {
                 ) : (
                   <span className="flex items-center gap-0.5 text-green">
                     <IoTriangleSharp className="rotate-180" />
-                    {product.change.pct.toLocaleString("bn-BD")}%
+                    {Math.abs(product.change.pct).toLocaleString("bn-BD")}%
                   </span>
                 )}
               </div>
