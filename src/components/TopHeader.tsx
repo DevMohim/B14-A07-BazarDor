@@ -1,6 +1,9 @@
+
 import Logo from "@/assets/logo-icon.png";
 import Image from "next/image";
 import Link from "next/link";
+import Btns from "./Btns";
+
 const time = new Date().toLocaleDateString("bn-BD", {
   timeZone: "Asia/Dhaka",
   weekday: "long",
@@ -8,7 +11,8 @@ const time = new Date().toLocaleDateString("bn-BD", {
   month: "long",
   year: "numeric",
 });
-const TopHeader = () => {
+
+const TopHeader = async () => {
   return (
     <section className="border-b-2 border-b-black/5">
       <div className="flex justify-between items-center gap-4 container mx-auto py-2 ">
@@ -51,18 +55,7 @@ const TopHeader = () => {
             <p className="text-xs">{time}</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Link href='/signin'>
-            <button className="btn border-none text-sm font-semibold ">
-              সাইন ইন
-            </button>
-          </Link>
-          <Link href="/signup">
-            <button className="btn bg-green text-white text-sm font-semibold ">
-              সাইন আপ
-            </button>
-          </Link>
-        </div>
+        <Btns />
       </div>
     </section>
   );
