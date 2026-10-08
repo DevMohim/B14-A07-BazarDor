@@ -5,7 +5,7 @@ import IncreasePricesProduct from "@/components/Homepage/IncreasePricesProduct";
 
 export default function Home() {
   return (
-    <div >
+    <div>
       <Banner />
       <IncreasePricesProduct />
       <DecreasePricesProduct />

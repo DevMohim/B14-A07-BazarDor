@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
+import Footer from "@/components/Shared/Footer";
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body suppressHydrationWarning className="min-h-full flex flex-col">
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

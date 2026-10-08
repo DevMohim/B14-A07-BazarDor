@@ -10,7 +10,9 @@ const AllProducts = async() => {
          <h1 className="flex items-center gap-3 text-dark text-2xl font-bold mb-3">
            সব পণ্য
          </h1>
-         <p className='text-dark/50 mb-6'>মোট {allProducts.length.toLocaleString('bn-BD')} টি পণ্য দেখানো হচ্ছে</p>
+         <p className="text-dark/50 mb-6">
+           মোট {allProducts.length.toLocaleString("bn-BD")} টি পণ্য দেখানো হচ্ছে
+         </p>
 
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4">
            {allProducts.map((product) => (
