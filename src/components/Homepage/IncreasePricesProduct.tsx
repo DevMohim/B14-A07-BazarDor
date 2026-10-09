@@ -8,7 +8,7 @@ const IncreasePricesProduct = async() => {
    const highPriceProducts = allProducts.filter(product => product.change.dir === 'up')
    const sortedProduct = highPriceProducts.sort((firstProduct, secondProduct) => secondProduct.change.pct- firstProduct.change.pct).slice(0,6)
    return (
-     <section className="mt-12">
+     <section className="mt-12 px-4 ">
        <div className="container mx-auto">
          <h1 className='flex items-center gap-3 text-dark text-2xl font-bold mb-6'>
            <span className="text-red-600 ">

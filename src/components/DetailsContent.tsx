@@ -25,7 +25,7 @@ const DetailsContent = async ({
   console.log(minPrice[0]);
 
   return (
-    <section className="bg-[#E1E8E1] -mt-10">
+    <section className="bg-[#E1E8E1] -mt-10 px-4">
       <div className="container mx-auto pt-10 py-20 space-y-6 mt">
         <div>
           <div className="breadcrumbs text-sm">
@@ -48,7 +48,7 @@ const DetailsContent = async ({
           </div>
         </div>
 
-        <div className="rounded-xl border border-stroke bg-white p-8 flex justify-between items-center">
+        <div className="rounded-xl border border-stroke bg-white p-2 md:p-8 flex justify-between items-center gap-3">
           <div className="flex items-center gap-3 ">
             <div className="w-14 h-14 bg-stroke rounded-xl flex justify-center items-center">
               {image ? (
@@ -67,9 +67,9 @@ const DetailsContent = async ({
               </p>
             </div>
           </div>
-          <div className="rounded-lg bg-stroke  px-5 py-4 flex justify-center items-center flex-col">
-            <p className="text-dark/70 text-sm">আজকের দাম</p>
-            <p className="text-3xl text-dark font-bold">
+          <div className="rounded-lg bg-stroke px-3 md:px-5 py-4 flex justify-center items-center flex-col">
+            <p className="text-dark/70 text-xs md:text-sm">আজকের দাম</p>
+            <p className="text-xl md:text-3xl text-dark font-bold">
               {today.toLocaleString("bn-BD")}
             </p>
             <p className="mt-1 text-sm text-dark/70">টাকা / কেজি</p>
@@ -83,7 +83,7 @@ const DetailsContent = async ({
         </div>
 
         {/* bazar table */}
-        <div className="overflow-x-auto rounded-xl border border-stroke bg-white p-8">
+        <div className="overflow-x-auto rounded-xl border border-stroke bg-white p-4 md:p-8">
           {/* Price (max , min and average ) */}
           <div className="mb-10">
             <h1 className="mb-4 font-bold text-dark text-2xl">
@@ -135,8 +135,8 @@ const DetailsContent = async ({
                   <th className="p-3">বাজার</th>
                   <th className="p-3">বিভাগ</th>
                   <th className="p-3">সর্বনিম্ন দাম</th>
-                  <th className="p-3">সর্বাধিক</th>
-                  <th className="p-3 text-right">সর্বোচ্চ দাম</th>
+                  <th className="p-3">সর্বাধিক দাম</th>
+                  <th className="p-3 text-right">গড় দাম</th>
                 </tr>
               </thead>
 
@@ -150,10 +150,10 @@ const DetailsContent = async ({
                       {market.market}
                     </td>
                     <td className="p-3">{market.division}</td>
-                    <td className="p-3">{market.min} টাকা</td>
-                    <td className="p-3 ">{market.max} টাকা</td>
+                    <td className="p-3">{market.min.toLocaleString('bn-BD')} ৳</td>
+                    <td className="p-3 ">{market.max.toLocaleString('bn-BD')} ৳</td>
                     <td className="p-3 text-dark font-semibold text-right">
-                      {(market.max + market.min) / 2}টাকা
+                      {((market.max + market.min) / 2).toLocaleString('bn-BD')} ৳
                     </td>
                   </tr>
                 ))}

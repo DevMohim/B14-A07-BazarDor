@@ -5,7 +5,7 @@ import ProductCard from '../Shared/ProductCard';
 const AllProducts = async() => {
    const allProducts = await getAllProducts() as IProductType[]
    return (
-     <section className="mt-12" id='allProduct'>
+     <section className="mt-12 px-4" id='allProduct'>
        <div className="container mx-auto">
          <h1 className="flex items-center gap-3 text-dark text-2xl font-bold mb-1">
            সব পণ্য

@@ -15,7 +15,7 @@ const DecreasePricesProduct = async () => {
     )
     .slice(0, 6);
   return (
-    <section className="mt-12">
+    <section className="mt-12 px-4">
       <div className="container mx-auto">
         <h1 className="flex items-center gap-3 text-dark text-2xl font-bold mb-6">
           <span className="flex items-center gap-0.5 text-green">

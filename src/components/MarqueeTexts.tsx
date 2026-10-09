@@ -10,7 +10,7 @@ const MarqueeTexts = async() => {
   return (
     <section className="sticky top-0 z-50 text-dark mb-6 bg-headerBg border-2 border-stroke">
       <div className="flex">
-        <MarqueeText className="" direction="right" duration={10} pauseOnHover>
+        <MarqueeText direction="right" duration={7} pauseOnHover>
           {allProduct.map((product) => (
             <div key={product.id} className="border-r-2 border-r-dark/10 ">
               <div className="flex items-center gap-2 px-8 py-2 cursor-pointer ">

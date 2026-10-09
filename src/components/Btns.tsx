@@ -40,12 +40,12 @@ const Btns = () => {
               onClick={handleMenuClick}
               className="flex gap-2 hover:bg-dark/20 px-4 py-2 transition duration-200 ease-in rounded-lg cursor-pointer"
             >
-              <div className="bg-green w-8 h-8 rounded-lg flex justify-center items-center mr-2">
+              <div className="bg-green w-8 h-8 rounded-lg flex justify-center items-center mr-0 lg:mr-2">
                 <h1 className="font-bold font-sans text-white px-2 py-0.5 ">
                   {session?.user.name.slice(0, 1)}
                 </h1>
               </div>
-              <h1 className="text-xl font-sans text-dark font-semibold -mr-3">
+              <h1 className="text-xl hidden lg:block font-sans text-dark font-semibold -mr-3">
                 {session?.user.name}
               </h1>
               <p>

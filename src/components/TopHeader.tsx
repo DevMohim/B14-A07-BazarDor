@@ -14,7 +14,7 @@ const time = new Date().toLocaleDateString("bn-BD", {
 
 const TopHeader = async () => {
   return (
-    <section className="border-b-2 border-b-black/5">
+    <section className="border-b-2 border-b-black/5 px-4">
       <div className="flex justify-between items-center gap-4 container mx-auto py-2 ">
         <div className="lg:hidden">
           <label className="btn btn-circle swap swap-rotate">

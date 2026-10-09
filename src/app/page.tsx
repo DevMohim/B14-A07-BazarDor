@@ -2,8 +2,6 @@ import AllProducts from "@/components/Homepage/AllProducts";
 import Banner from "@/components/Homepage/Banner";
 import DecreasePricesProduct from "@/components/Homepage/DecreasePricesProduct";
 import IncreasePricesProduct from "@/components/Homepage/IncreasePricesProduct";
-import AllProductsSkeleton from "@/components/Skeletons/AllProductSkleton";
-import IncreasePricesProductSkeleton from "@/components/Skeletons/IncreaseSkeleton";
 import ProductCardSkeleton from "@/components/Skeletons/ProductCardSkeleton";
 import { Suspense } from "react";
 
