@@ -78,11 +78,11 @@ const Btns = () => {
           {session?.user.email}
         </p>
         <Link href='/profile'>
-          <h3 className="text-dark mb-2 ">👤 আমার প্রোফাইল</h3>
+          <button className=" text-dark mb-2 cursor-pointer">👤 আমার প্রোফাইল</button>
         </Link>
-        <h3 onClick={handleSignOut} className="text-red-600 cursor-pointer">
+        <button onClick={handleSignOut} className="  text-red-600 cursor-pointer">
           ↩ সাইন আউট
-        </h3>
+        </button>
       </div>
     </div>
   );
