@@ -13,7 +13,7 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "BazarDor | Home page",
+  title: "BazarDor ",
   description: "বাংলাদেশের নিত্যপ্রয়োজনীয় পণ্যের বাজারদর দেখুন।",
 };
 
