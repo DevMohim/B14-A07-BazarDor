@@ -32,7 +32,7 @@ const SignUpPage = () => {
      if(data){
       form.reset()
       toast.success("অ্যাকাউন্ট তৈরি সফল হয়েছে!");
-      redirect('/')
+      redirect('/signin')
      }
      if(error){
       toast.error(error.message as string)

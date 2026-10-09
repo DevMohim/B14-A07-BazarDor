@@ -3,9 +3,18 @@ import Link from 'next/link';
 import { IoTriangleSharp } from 'react-icons/io5';
 
 const ProductCard = ({product} : {product : IProductType}) => {
-   const {image,nameBn,today,change} = product
+   const {image,nameBn,today,change , unit} = product
+   const unitBn: Record<string, string> = {
+     liter: "লিটার",
+     litre: "লিটার",
+     dozen: "ডজন",
+     kg: "কেজি",
+     piece: "পিস",
+   };
+
+   const displayUnit = unitBn[unit.toLowerCase()] ?? unit;
    return (
-     <Link href={`/product/${product.id}`}>
+     <Link href={`/product/${product.slug}`}>
        <div className="bg-headerBg border border-stroke rounded-lg p-6 hover:border hover:border-green transition ease-in duration-200">
          <div className="flex items-center gap-2">
            <div className="w-12 h-12 rounded-xl bg-stroke flex justify-center items-center">
@@ -13,7 +22,7 @@ const ProductCard = ({product} : {product : IProductType}) => {
            </div>
            <div>
              <h1 className="font-semibold text-dark mb-0.5">{nameBn}</h1>
-             <p className="text-xs text-dark/80">প্রতি কেজি</p>
+             <p className="text-xs text-dark/80">প্রতি {displayUnit}</p>
            </div>
          </div>
          <p className="mt-4 text-xs text-dark/80">আজকের দাম</p>

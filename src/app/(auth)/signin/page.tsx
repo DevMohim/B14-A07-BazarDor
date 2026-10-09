@@ -31,13 +31,11 @@ const SignInPage = () => {
   const handleGoogleSignIn = async() => {
     await signIn.social({
       provider: "google",
-      callbackURL: '/'
     });
   }
   const handleGithubSignIn = async() => {
     await signIn.social({
       provider: "github",
-      callbackURL: '/'
     });
   }
   return (

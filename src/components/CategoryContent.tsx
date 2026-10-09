@@ -1,11 +1,17 @@
 import { INavLinks, IProductType } from '@/types/types';
 import { getProductCategory, getSingleProduct } from '@/utils/Data';
 import SortOption from './SortOption';
+import { notFound } from 'next/navigation';
 
 const CategoryContent = async({params} : {params: Promise<{categoryName: string}>}) => {
    const { categoryName } = await params;
    const products = await getProductCategory({ categoryName }) as IProductType[]
    const product = await getSingleProduct({categoryName}) as INavLinks
+
+
+   if (!products || products.length === 0) {
+     notFound();
+   }
   return (
     <div className="bg-[#E1E8E1] -mt-10 px-4">
       <div className="container mx-auto pt-10 pb-20 space-y-4">

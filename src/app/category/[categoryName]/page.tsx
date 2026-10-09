@@ -1,13 +1,17 @@
+
 import CategoryContent from "@/components/CategoryContent";
 import CategoryContentSkeleton from "@/components/Skeletons/CategoryContentSkeleton";
 import { Suspense } from "react";
 
 
-interface CategoryPageProps {
-  params: Promise<{ categoryName: string }>;
-}
 
-const CategroyPage = async ({ params }: CategoryPageProps) => {
+const CategroyPage = async ({
+  params,
+}: {
+  params: Promise<{ categoryName: string }>;
+}) => {
+
+
   return (
     <Suspense fallback={<CategoryContentSkeleton />}>
       <CategoryContent params={params} />

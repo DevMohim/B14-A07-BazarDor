@@ -40,12 +40,12 @@ const Btns = () => {
               onClick={handleMenuClick}
               className="flex gap-2 hover:bg-dark/20 px-4 py-2 transition duration-200 ease-in rounded-lg cursor-pointer"
             >
-              <div className="bg-green w-8 h-8 rounded-lg flex justify-center items-center mr-0 lg:mr-2">
-                <h1 className="font-bold font-sans text-white px-2 py-0.5 ">
+              <div className="bg-green w-8 h-8 rounded-lg flex justify-center items-center mr-0 lg:mr-2 cursor-pointer">
+                <h1 className="font-bold font-sans text-white px-2 py-0.5">
                   {session?.user.name.slice(0, 1)}
                 </h1>
               </div>
-              <h1 className="text-xl hidden lg:block font-sans text-dark font-semibold -mr-3">
+              <h1 className="text-xl hidden lg:block font-sans text-dark font-semibold -mr-3 cursor-pointer">
                 {session?.user.name}
               </h1>
               <p>
@@ -69,18 +69,23 @@ const Btns = () => {
         )}
       </div>
       <div
-        className={`absolute z-100 bg-white py-5 pl-5 pr-24 rounded-xl border-2 border-stroke  ${isMenuClick ? "top-14 right-2" : "-top-96 -right-3"}`}
+        className={`absolute z-100 bg-white py-5 pl-5 pr-10 rounded-xl border-2 border-stroke  ${isMenuClick ? "top-14 right-2" : "-top-96 -right-3"}`}
       >
-        <h1 className="text-lg text-dark/50 font-medium">
+        <h1 className="text-lg text-dark/50 font-medium cursor-text">
           {session?.user.name}
         </h1>
-        <p className="text-sm text-dark/50  mb-3">
+        <p className="text-sm text-dark/50  mb-3  cursor-text">
           {session?.user.email}
         </p>
-        <Link href='/profile'>
-          <button className=" text-dark mb-2 cursor-pointer">👤 আমার প্রোফাইল</button>
+        <Link href="/profile">
+          <button className=" text-dark mb-2 cursor-pointer transition ease-in duration-200 hover:bg-gray-400/30 w-full text-left pr-3 pl-1 py-1.5 rounded-lg">
+            👤 আমার প্রোফাইল
+          </button>
         </Link>
-        <button onClick={handleSignOut} className="  text-red-600 cursor-pointer">
+        <button
+          onClick={handleSignOut}
+          className="  text-red-600 cursor-pointer transition ease-in duration-200 hover:bg-gray-400/30 w-full text-left pr-3 pl-1 py-1.5 rounded-lg"
+        >
           ↩ সাইন আউট
         </button>
       </div>

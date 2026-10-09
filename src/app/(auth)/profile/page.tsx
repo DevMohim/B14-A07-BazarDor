@@ -1,30 +1,15 @@
 "use client";
-import { signOut, updateUser, useSession } from "@/lib/auth-cilent";
+import { signOut, useSession } from "@/lib/auth-cilent";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+
 import toast from "react-hot-toast";
 
 const ProfilePage = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const name = formData.get("name");
-
-    if (typeof name !== "string" || !name.trim()) return;
-
-    try {
-      await updateUser({ name: name.trim() });
-      form.reset();
-      toast.success("প্রোফাইল আপডেট হয়েছে");
-    } catch {
-      toast.error("প্রোফাইল আপডেট করা যায়নি");
-    }
-  };
-
+  
   const handleSignOut = async () => {
     await signOut({
       fetchOptions: {
@@ -48,7 +33,7 @@ const ProfilePage = () => {
           </div>
 
           {/* name ans sign out */}
-          <div className="bg-white rounded-2xl border-2 border-stroke flex justify-between items-center p-4">
+          <div className="bg-white rounded-2xl border-2 border-stroke flex flex-col lg:flex-row gap-4 justify-between items-center p-4">
             <div className="flex items-center gap-1">
               <div className="bg-green w-14 h-14 rounded-lg flex justify-center items-center mr-2">
                 <h1 className="font-bold font-sans text-white px-2 py-0.5 ">
@@ -62,10 +47,10 @@ const ProfilePage = () => {
                 <p className="text-dark/70">{session?.user.email}</p>
               </div>
             </div>
-            <div>
+            <div className="w-[75%] md:w-[50%] lg:w-[25%]">
               <button
                 onClick={handleSignOut}
-                className="text-red-600 cursor-pointer border border-red-600 px-4 py-2 rounded-lg hover:bg-red-700 hover:text-white font-semibold transition duration-150"
+                className="text-red-600 cursor-pointer border border-red-600 px-4 py-2 rounded-lg hover:bg-red-700 hover:text-white font-semibold transition duration-150 w-full"
               >
                 ↩ সাইন আউট
               </button>
@@ -73,21 +58,11 @@ const ProfilePage = () => {
           </div>
 
           {/* profile update */}
-          <div className="bg-white rounded-2xl border-2 border-stroke p-4">
-            <h3 className="text-lg font-semibold text-dark mb-3">তথ্য</h3>
-            <form onSubmit={onSubmit}>
-              <fieldset className="fieldset  p-4">
-                <label className="label text-sm text-dark font-medium">
-                  নাম{" "}
-                </label>
-                <input type="text" name="name" className="input w-full" />
-
-                <button type="submit" className="btn mt-4 bg-green text-white">
-                  আপডেট
-                </button>
-              </fieldset>
-            </form>
-          </div>
+          <Link href='/update-info'>
+            <button className="btn bg-green text-white font-semibold ">
+              তথ্য হালনাগাদ করুন
+            </button>
+          </Link>
         </div>
       </div>
     </main>

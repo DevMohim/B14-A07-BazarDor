@@ -8,7 +8,7 @@ export interface INavLinks {
 export interface IProductType {
   id: number;
   slug: string;
-  nameBn: string;
+  nameBn: string ;
   category: string;
   categoryNameBn: string;
   categoryIcon: string;
