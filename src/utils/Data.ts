@@ -1,3 +1,5 @@
+import { cacheLife } from "next/cache";
+
 interface ProductCategoryProps {
   categoryName: string;
 }
@@ -17,13 +19,18 @@ export const getNavLinks = async () => {
 };
 
 export const getAllProducts = async () => {
+  'use cache'
+  cacheLife('hours')
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/products",
     { next: { revalidate: 3600 } },
   );
   if (res.status === 404) return null;
+
   if (!res.ok) {
-    throw new Error("Api fetched failed");
+    const details = await res.text();
+  throw new Error(
+    `Products API failed: ${res.status} ${res.statusText}. ${details}`)
   }
   return await res.json();
 };
@@ -65,15 +72,14 @@ export const getProductDetails = async ({
 }: {
   productId: string;
 }) => {
+  const res = await fetch(
+    `https://api.api-store.workers.dev/api/bazardor/products/${productId}`,
+    { next: { revalidate: 3600 } },
+  );
+  if (res.status === 404) return null;
 
-    const res = await fetch(
-      `https://api.api-store.workers.dev/api/bazardor/products/${productId}`,
-      { next: { revalidate: 3600 } },
-    );
-    if (res.status === 404) return null;
-    if (!res.ok) {
-      throw new Error("Api fetched failed");
-    }
-    return await res.json();
-  
+  if (!res.ok) {
+    throw new Error("Api fetched failed");
+  }
+  return await res.json();
 };
