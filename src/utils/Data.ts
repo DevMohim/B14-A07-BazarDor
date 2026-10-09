@@ -1,5 +1,3 @@
-import { cacheLife } from "next/cache";
-
 interface ProductCategoryProps {
   categoryName: string;
 }
@@ -19,8 +17,7 @@ export const getNavLinks = async () => {
 };
 
 export const getAllProducts = async () => {
-  'use cache'
-  cacheLife('hours')
+
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/products",
     { next: { revalidate: 3600 } },
