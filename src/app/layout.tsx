@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar";
@@ -20,11 +21,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="bn" className={hindSiliguri.className}>
       <body suppressHydrationWarning className="min-h-full flex flex-col">
-        <Navbar />
+        <Suspense fallback={<div className="h-16" />}>
+          <Navbar />
+        </Suspense>
 
         <main>{children}</main>
 
-        <Footer />
+        <Suspense fallback={<div className="h-24" />}>
+          <Footer />
+        </Suspense>
 
         <Toaster />
       </body>
