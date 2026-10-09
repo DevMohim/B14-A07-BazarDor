@@ -25,9 +25,7 @@ export const getAllProducts = async () => {
   if (res.status === 404) return null;
 
   if (!res.ok) {
-    const details = await res.text();
-  throw new Error(
-    `Products API failed: ${res.status} ${res.statusText}. ${details}`)
+    throw new Error(`Products API failed`)
   }
   return await res.json();
 };

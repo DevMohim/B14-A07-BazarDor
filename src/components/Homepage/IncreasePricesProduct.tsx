@@ -3,7 +3,9 @@ import { getAllProducts } from '@/utils/Data';
 import { IoTriangleSharp } from 'react-icons/io5';
 import ProductCard from '../Shared/ProductCard';
 
+
 const IncreasePricesProduct = async() => {
+
    const allProducts = await getAllProducts() as IProductType[];
    const highPriceProducts = allProducts.filter(product => product.change.dir === 'up')
    const sortedProduct = highPriceProducts.sort((firstProduct, secondProduct) => secondProduct.change.pct- firstProduct.change.pct).slice(0,6)
