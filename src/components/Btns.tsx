@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { RiArrowDropDownFill } from "react-icons/ri";
 
 const Btns = () => {
@@ -16,6 +17,7 @@ const Btns = () => {
       fetchOptions: {
         onSuccess: () => {
           setIsMenuClick(false)
+          toast.success("সাইন আউট হয়েছে");
           router.push("/signin");
         },
       },
