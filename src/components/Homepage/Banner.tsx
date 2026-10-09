@@ -35,7 +35,7 @@ const Banner = () => {
           </a>
         </div>
 
-        <div className="w-full max-w-xs sm:max-w-sm lg:max-w-[315px]">
+        <div className="w-full max-w-xs sm:max-w-sm lg:max-w-78.75">
           <Image
             src={BannerImg}
             alt="Bazardor banner image"

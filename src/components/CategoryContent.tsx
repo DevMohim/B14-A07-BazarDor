@@ -1,6 +1,6 @@
 import { INavLinks, IProductType } from '@/types/types';
 import { getProductCategory, getSingleProduct } from '@/utils/Data';
-import ProductCard from './Shared/ProductCard';
+import SortOption from './SortOption';
 
 const CategoryContent = async({params} : {params: Promise<{categoryName: string}>}) => {
    const { categoryName } = await params;
@@ -24,31 +24,9 @@ const CategoryContent = async({params} : {params: Promise<{categoryName: string}
           </div>
         </div>
 
-        <div
-          className="flex items-center gap-4 justify-end p-4 bg-white
-         rounded-2xl border border-stroke"
-        >
-          <label className="text-sm text-dark/70">সাজান</label>
-          <select
-            id="sort-products"
-            className="select select-bordered select-sm w-33"
-          >
-            <option value="default">ডিফল্ট</option>
-            <option value="price-asc">দাম: কম থেকে বেশি</option>
-            <option value="price-desc">দাম: বেশি থেকে কম</option>
-          </select>
-        </div>
+        <SortOption products={products}/>
 
-        <div className='my-5'>
-          <p className="text-sm text-dark/70 mb-4">
-            মোট {products.length.toLocaleString("bn-BD")}টি পণ্য দেখানো হচ্ছে
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        
       </div>
     </div>
   );

@@ -51,7 +51,7 @@ const DetailsContentSkeleton = () => (
 
         <div className="mb-4 h-7 w-48 animate-pulse rounded bg-gray-200" />
 
-        <div className="min-w-[650px] overflow-hidden rounded-2xl border-2 border-stroke">
+        <div className="min-w-162.5 overflow-hidden rounded-2xl border-2 border-stroke">
           {/* Table heading */}
           <div className="grid grid-cols-5 gap-4 border-b border-stroke p-3">
             {Array.from({ length: 5 }, (_, index) => (
