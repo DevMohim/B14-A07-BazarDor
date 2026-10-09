@@ -9,6 +9,7 @@ BazarDor is a Bengali market price tracking website that helps users check curre
 - Next.js
 - React
 - TypeScript
+- BetterAuth
 - Tailwind CSS
 - React Icons
 - DaisyUI
