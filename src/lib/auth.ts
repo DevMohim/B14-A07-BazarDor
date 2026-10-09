@@ -13,6 +13,10 @@ const db = client.db("bazarDor");
 
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL as string,
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://bazar-dor-woad.vercel.app/",
+  ],
   secret: process.env.BETTER_AUTH_SECRET as string,
   emailAndPassword: {
     enabled: true,
@@ -24,7 +28,7 @@ export const auth = betterAuth({
     },
     github: {
       clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
     },
   },
   database: mongodbAdapter(db, {
