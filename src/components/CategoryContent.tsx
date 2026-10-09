@@ -7,7 +7,7 @@ const CategoryContent = async({params} : {params: Promise<{categoryName: string}
    const products = await getProductCategory({ categoryName }) as IProductType[]
    const product = await getSingleProduct({categoryName}) as INavLinks
   return (
-    <div className="bg-[#E1E8E1] -mt-10">
+    <div className="bg-[#E1E8E1] -mt-10 px-4">
       <div className="container mx-auto pt-10 pb-20 space-y-4">
         <div className="bg-white rounded-2xl border border-stroke flex items-center p-4 ">
           <div className="w-9 h-10 flex items-center gap-2">

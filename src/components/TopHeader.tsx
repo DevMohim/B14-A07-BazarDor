@@ -1,8 +1,15 @@
+"use client";
 
 import Logo from "@/assets/logo-icon.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Btns from "./Btns";
+import { getNavLinks } from "@/utils/Data";
+import MobileNavLinks from "./MobileNavLinks";
+import toast from "react-hot-toast";
+
+type NavLinks = Awaited<ReturnType<typeof getNavLinks>>;
 
 const time = new Date().toLocaleDateString("bn-BD", {
   timeZone: "Asia/Dhaka",
@@ -12,51 +19,51 @@ const time = new Date().toLocaleDateString("bn-BD", {
   year: "numeric",
 });
 
-const TopHeader = async () => {
+const TopHeader = () => {
+  const [isClick, setIsClick] = useState<boolean>(false);
+  const [navLinks, setNavLinks] = useState<NavLinks | null>(null);
+
+  
+
+  useEffect(() => {
+    getNavLinks()
+      .then(setNavLinks)
+      .catch((error) => toast.error("Navigation links load failed:", error));
+  }, []);
+
   return (
-    <section className="border-b-2 border-b-black/5 px-4">
-      <div className="flex justify-between items-center gap-4 container mx-auto py-2 ">
-        <div className="lg:hidden">
-          <label className="btn btn-circle swap swap-rotate">
-            {/* this hidden checkbox controls the state */}
-            <input type="checkbox" />
+    <section className="border-b-2 border-b-black/5 px-4 relative">
+      <div className="container mx-auto flex items-center justify-between gap-4 py-2">
+        <button
+          type="button"
+          className="btn btn-circle lg:hidden"
+          aria-expanded={isClick}
+          onClick={() => setIsClick((open) => !open)}
+        >
+          {isClick ? "✕" : "☰"}
+        </button>
 
-            {/* hamburger icon */}
-            <svg
-              className="swap-off fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 512 512"
-            >
-              <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-            </svg>
-
-            {/* close icon */}
-            <svg
-              className="swap-on fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 512 512"
-            >
-              <polygon points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-            </svg>
-          </label>
-        </div>
         <div className="flex items-center gap-2">
           <Link href="/">
-            <div className="w-10 h-10 rounded-xl bg-green flex justify-center items-center">
-              <Image src={Logo} alt="Bazar-Dor logo"></Image>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green">
+              <Image src={Logo} alt="Bazar-Dor logo" />
             </div>
           </Link>
+
           <div>
-            <h1 className="font-bold text-xl text-dark">বাজার দর</h1>
+            <h1 className="text-xl font-bold text-dark">বাজার দর</h1>
             <p className="text-xs">{time}</p>
           </div>
         </div>
+
         <Btns />
       </div>
+
+      {isClick && navLinks && (
+        <div className="lg:hidden absolute top-16 left-0 z-100 w-full bg-white">
+          <MobileNavLinks navLinks={navLinks} />
+        </div>
+      )}
     </section>
   );
 };
