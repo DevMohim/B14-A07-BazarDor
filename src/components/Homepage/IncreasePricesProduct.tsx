@@ -1,6 +1,5 @@
 import { IProductType } from '@/types/types';
 import { getAllProducts } from '@/utils/Data';
-import React from 'react';
 import { IoTriangleSharp } from 'react-icons/io5';
 import ProductCard from '../Shared/ProductCard';
 

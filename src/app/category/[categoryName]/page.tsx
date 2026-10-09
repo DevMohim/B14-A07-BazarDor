@@ -1,5 +1,7 @@
 import CategoryContent from "@/components/CategoryContent";
+import CategoryContentSkeleton from "@/components/Skeletons/CategoryContentSkeleton";
 import { Suspense } from "react";
+
 
 interface CategoryPageProps {
   params: Promise<{ categoryName: string }>;
@@ -7,7 +9,7 @@ interface CategoryPageProps {
 
 const CategroyPage = async ({ params }: CategoryPageProps) => {
   return (
-    <Suspense fallback={<div>লোড হচ্ছে...</div>}>
+    <Suspense fallback={<CategoryContentSkeleton />}>
       <CategoryContent params={params} />
     </Suspense>
   );
